@@ -2,10 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import Card from '../shared/Card'
 import Button from '../shared/Button'
+import RatingSelect from './RatingSelect'
 const FedbackForm = () => {
+
 const [text, setText] = useState("")
 const [btnDisbled, setbtnDisabled] = useState(true)
 const [message, setMessage] = useState("")
+const [rating, setRating] = useState(10)
 
 
 const handleTextChange = (e) => {
@@ -25,6 +28,7 @@ const handleTextChange = (e) => {
     <Card>
       <form >
         <h2>How you would rate your service with us</h2>
+        <RatingSelect select={(rating) => setRating(rating)} />
         <div className="input-group">
           <input onChange={handleTextChange} 
                  type="text"  
